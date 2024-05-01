@@ -17,7 +17,14 @@ class HomePage extends StatelessWidget {
                   return Text('Hata oluştu! ${snapshot.error}');
                 } else if (snapshot.hasData) {
                   final data = snapshot.data!;
-                  return Text('data başarılı...');
+
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Column(children: [Text(data.location.name)]);
+                    },
+                    itemCount: 1,
+                  );
                 } else {
                   return CircularProgressIndicator();
                 }

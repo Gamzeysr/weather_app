@@ -14,14 +14,12 @@ final String _baseUrl =
     "http://api.weatherapi.com/v1/current.json?key=${_apiKey} &q=İzmir&aqi=no";
 
 Future<Weather> getHavaDurumuBySehirAdi() async {
-  print(_baseUrl);
   final url = Uri.parse(_baseUrl);
   final response = await http.get(url);
 
   if (response.statusCode == 200) {
     final json = jsonDecode(response.body);
-    print(json);
-
+    print(Weather.fromJson(json));
     return Weather.fromJson(json);
   } else {
     throw Exception("Hava durumu verileri alınamadı: ${response.statusCode}");
