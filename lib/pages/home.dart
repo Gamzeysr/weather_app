@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/services/hava_durumu_servisi.dart';
+import 'package:weather_app/widgets/card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
                   return ListView.builder(
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      return Column(children: [Text(data.location.name)]);
+                      return WeatherCard(json: data);
                     },
                     itemCount: 1,
                   );

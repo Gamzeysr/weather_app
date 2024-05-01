@@ -19,7 +19,7 @@ Future<Weather> getHavaDurumuBySehirAdi() async {
 
   if (response.statusCode == 200) {
     final json = jsonDecode(response.body);
-    print(Weather.fromJson(json));
+
     return Weather.fromJson(json);
   } else {
     throw Exception("Hava durumu verileri alınamadı: ${response.statusCode}");
