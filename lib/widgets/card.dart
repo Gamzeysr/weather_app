@@ -17,7 +17,8 @@ class WeatherCard extends StatelessWidget {
           children: [
             Text(json.location.name),
             Text(json.location.country),
-            Text(json.current.tempC.toString()),
+            Text((json.current.tempC).toStringAsFixed(1) + '°C'),
+            Text((json.current.feelslikeC).toStringAsFixed(1) + '°C'),
           ],
         ),
       ),

@@ -11,8 +11,9 @@ class HomePage extends StatelessWidget {
         body: Center(
       child: Column(
         children: [
+          const SearchBar(),
           FutureBuilder(
-              future: getHavaDurumuBySehirAdi(),
+              future: getHavaDurumuBySehirAdi("ankara"),
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
                   return Text('Hata oluştu! ${snapshot.error}');

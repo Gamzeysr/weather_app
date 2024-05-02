@@ -13,7 +13,7 @@ final String _apiKey = "31617bc8c59640898f5113626240105";
 final String _baseUrl =
     "http://api.weatherapi.com/v1/current.json?key=${_apiKey} &q=İzmir&aqi=no";
 
-Future<Weather> getHavaDurumuBySehirAdi() async {
+Future<Weather> getHavaDurumuBySehirAdi(String searchTerm) async {
   final url = Uri.parse(_baseUrl);
   final response = await http.get(url);
 
