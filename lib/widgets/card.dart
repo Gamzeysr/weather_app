@@ -13,13 +13,24 @@ class WeatherCard extends StatelessWidget {
           3, //ekran genişliğinin üçte biri
 
       child: Card(
-        child: Column(
-          children: [
-            Text(json.location.name),
-            Text(json.location.country),
-            Text((json.current.tempC).toStringAsFixed(1) + '°C'),
-            Text((json.current.feelslikeC).toStringAsFixed(1) + '°C'),
-          ],
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            // Şehir ve kart numarasını tutmak için bir Column ekleyin
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.sunny),
+                  Text("City : "),
+                  Text(json.location.name),
+                ],
+              )
+              // Text(json.current.feelslikeC.toString()),
+
+              // Text(json.current.windMph),
+            ],
+          ),
         ),
       ),
     );
