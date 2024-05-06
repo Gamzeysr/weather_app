@@ -45,6 +45,3 @@ class _MySearchBarState extends State<MySearchBar> {
     );
   }
 }
-
-// class _searchTextController {}
-

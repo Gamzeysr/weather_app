@@ -1,16 +1,38 @@
+import 'package:flutter/material.dart';
+
 class Weather {
   Location location;
   Current current;
+  IconData iconData;
 
   Weather({
     required this.location,
     required this.current,
+    required this.iconData,
   });
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
       location: Location.fromJson(json['location']),
       current: Current.fromJson(json['current']),
+      iconData: getIcon(json['current']['condition']['text'].toLowerCase()),
     );
+  }
+}
+
+IconData getIcon(String weatherCondition) {
+  switch (weatherCondition) {
+    case 'cloudy':
+      return Icons.cloud;
+    case 'rainy':
+      return Icons.water_drop;
+    case 'snowly':
+      return Icons.snowing;
+    case 'sunny':
+      return Icons.wb_sunny;
+    case 'partly cloudy':
+      return Icons.cloud;
+    default:
+      return Icons.error;
   }
 }
 

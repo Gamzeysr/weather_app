@@ -16,17 +16,31 @@ class WeatherCard extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
-            // Şehir ve kart numarasını tutmak için bir Column ekleyin
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.sunny),
-                  Text("City : "),
+                  // Icon(
+                  //   iconData,
+                  //   color: Colors.yellow,
+                  //   size: 50,
+                  // ),
+                  Icon(json.iconData),
+                ],
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Text("City : "),
+                  ),
                   Text(json.location.name),
+                  const SizedBox(width: 5),
+                  Text(json.current.tempC.round().toString() + "°C"),
                 ],
               )
-              // Text(json.current.feelslikeC.toString()),
 
               // Text(json.current.windMph),
             ],
